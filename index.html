@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolam Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body {
+            min-height: 100vh;
+            background: #0e0f11;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-200px) translateX(100px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            width: 90%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover {
+            transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.2);
+        }
+
+        .card h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979, #6a11cb, #2575fc);
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-size: 200% 200%;
+        }
+
+        .card a:hover {
+            transform: scale(1.1);
+            background-position: right center;
+        }
+
+        /* Neon glow effect */
+        .card:hover h2 {
+            text-shadow: 0 0 10px #ff6a00, 0 0 20px #ee0979, 0 0 30px #6a11cb;
+        }
+
+        @media(max-width: 768px){
+            .card { padding: 35px 20px; }
+            .card h2 { font-size: 1.5rem; }
+            .card p { font-size: 0.95rem; }
+        }
+
+        @media(max-width: 480px){
+            .container { padding: 30px 15px; gap: 20px; }
+            .card { padding: 30px 15px; }
+            .card h2 { font-size: 1.3rem; }
+            .card p { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particle" style="top:20%; left:10%; animation-duration:12s;"></div>
+    <div class="particle" style="top:40%; left:80%; animation-duration:15s;"></div>
+    <div class="particle" style="top:70%; left:30%; animation-duration:18s;"></div>
+    <div class="particle" style="top:50%; left:50%; animation-duration:20s;"></div>
+    <div class="particle" style="top:80%; left:70%; animation-duration:14s;"></div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Generate Kolam</h2>
+            <p>Create new kolam designs with easy options.</p>
+            <a href="generate.html">Go</a>
+        </div>
+        <div class="card">
+            <h2>Existing Kolam</h2>
+            <p>View saved or previously created kolam designs.</p>
+            <a href="existing.html">Go</a>
+        </div>
+        <div class="card">
+            <h2>AR Mode</h2>
+            <p>Experience kolam designs with Augmented Reality.</p>
+            <a href="ar.html">Go</a>
+        </div>
+        <div class="card">
+            <h2>Edit</h2>
+            <p>Edit or customize your kolam designs easily.</p>
+            <a href="edit.html">Go</a>
+        </div>
+    </div>
+</body>
+</html>
+
